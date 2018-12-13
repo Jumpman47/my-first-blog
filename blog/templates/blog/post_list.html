@@ -12,41 +12,13 @@
       </h1>
     </div>
 
-    <div>
-      <h2>
-        <a href="">My First Post</a>
-      </h2>
-      <p>
-        This is my first post. I am practicing the Django Girls Blog Tutorial
-        which can be found <a href="https://tutorial.djangogirls.org">here</a>.
-        I have started this project as a way to practice Django development. I
-        am hoping to use Django in my senior Capstone project at Georgia
-        Southern University. My next post will give a brief description of said
-        project. Cheers!
-      </p>
-      <p>
-        published: 12.12.18, 23:52
-      </p>
-    </div>
-
-    <div>
-      <h2>
-        <a href=""> Senior Capstone Project</a>
-      </h2>
-      <p>
-        For my capstone project, I am tasked with building a webserver on a
-        Raspberry pi 3 B+. We are using this webserver to connect to a camera
-        server which is also running on a Raspberry Pi 3 B+. The camera server
-        is running the motion software which records any video taken from a usb
-        webcamera. My team and I will be using the webcam to monitor robots
-        setup in our "Robotic Park". The webserver will also provide a means for
-        users to interact with the robots and even perform basic commands so
-        they can move the robots around the testbed.
-      </p>
-      <p>
-        published: 12.12.18, 23:57
-      </p>
-    </div>
+      {% for post in posts %}
+        <div>
+          <h2><a href="">{{ post.title }}</a></h2>
+          <p>{{ post.text|linebreaksbr }}</p>
+          <p>published: {{ post.published_date }}</p>
+        </div>
+      {% endfor %}
 
   </body>
 </html>
