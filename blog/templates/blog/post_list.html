@@ -1,24 +1,14 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Jumpman's Blog</title>
-  </head>
-  <body>
+{% extends 'blog/base.html' %}
 
-    <div>
-      <h1>
-        <a href="/">Jumpman's Blog</a>
-      </h1>
+{% block content %}
+  {% for post in posts %}
+    <div class="post">
+      <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+      <p>{{ post.text|linebreaksbr }}</p>
+      <div class="date">
+        <p>published: {{ post.published_date }}</p>
+      </div>
+      <hr>
     </div>
-
-      {% for post in posts %}
-        <div>
-          <h2><a href="">{{ post.title }}</a></h2>
-          <p>{{ post.text|linebreaksbr }}</p>
-          <p>published: {{ post.published_date }}</p>
-        </div>
-      {% endfor %}
-
-  </body>
-</html>
+  {% endfor %}
+{% endblock %}
