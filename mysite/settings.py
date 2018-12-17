@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+# Login page is accessed directly and redirect a successful login to the
+# top-levl index (homepage of the blog)
+LOGIN_REDIRECT_URL = '/'
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
